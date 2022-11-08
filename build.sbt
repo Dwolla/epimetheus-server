@@ -19,7 +19,13 @@ ThisBuild / githubWorkflowScalaVersions := Seq("2.13", "2.12", "3")
 ThisBuild / scalaVersion := Scala213
 ThisBuild / tlJdkRelease := Option(8)
 
-lazy val `epimetheus-server-root` = project.in(file(".")).aggregate(core)
+lazy val `epimetheus-server-root` =
+  project.in(file("."))
+    .settings(
+      publish / skip := true,
+      publishArtifact := false,
+    )
+    .aggregate(core)
 
 lazy val core = project.in(file("core"))
   .settings(
