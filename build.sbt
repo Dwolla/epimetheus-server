@@ -9,7 +9,7 @@ ThisBuild / licenses := Seq(License.MIT)
 ThisBuild / developers := List(
   tlGitHubDev("bpholt", "Brian Holt")
 )
-ThisBuild / tlSonatypeUseLegacyHost := false
+ThisBuild / tlSonatypeUseLegacyHost := true
 
 val Scala213 = "2.13.10"
 val Scala212 = "2.12.17"
