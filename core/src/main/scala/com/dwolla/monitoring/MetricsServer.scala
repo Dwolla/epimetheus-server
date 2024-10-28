@@ -1,16 +1,17 @@
 package com.dwolla.monitoring
 
-import cats.effect._
-import cats.syntax.all._
-import com.comcast.ip4s._
+import cats.effect.*
+import cats.syntax.all.*
+import com.comcast.ip4s.*
 import fs2.Stream
+import fs2.io.net.Network
 import io.chrisdavenport.epimetheus.CollectorRegistry
 import org.http4s.ember.server.EmberServerBuilder
-import org.http4s.implicits._
+import org.http4s.implicits.*
 
-sealed abstract class MetricsServer[F[_] : Async] private(registry: CollectorRegistry[F],
-                                                          port: Option[Port],
-                                                         ) {
+sealed abstract class MetricsServer[F[_] : Async : Network] private(registry: CollectorRegistry[F],
+                                                                    port: Option[Port],
+                                                                   ) {
   private val maybeServer: Option[Resource[F, Unit]] =
     port.map {
       EmberServerBuilder
@@ -38,7 +39,14 @@ sealed abstract class MetricsServer[F[_] : Async] private(registry: CollectorReg
 }
 
 object MetricsServer {
-  def apply[F[_] : Async](registry: CollectorRegistry[F],
+  @deprecated("Add Network constraint or use forAsync", "3.7.0")
+  def apply[F[_]](registry: CollectorRegistry[F],
                           port: Option[Port],
-                         ): MetricsServer[F] = new MetricsServer(registry, port) {}
+                          F: Async[F]): MetricsServer[F] = {
+    new MetricsServer(registry, port)(F, fs2.io.net.Network.implicitForAsync(F)) {}
+  }
+
+  def apply[F[_] : Async : Network](registry: CollectorRegistry[F],
+                                    port: Option[Port],
+                                   ): MetricsServer[F] = new MetricsServer(registry, port) {}
 }
