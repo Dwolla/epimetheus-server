@@ -18,6 +18,7 @@ ThisBuild / crossScalaVersions := Seq(Scala213, Scala212, Scala3)
 ThisBuild / githubWorkflowScalaVersions := Seq("2.13", "2.12", "3")
 ThisBuild / scalaVersion := Scala213
 ThisBuild / tlJdkRelease := Option(8)
+ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.temurin("17"))
 
 lazy val `epimetheus-server-root` =
   project.in(file("."))
