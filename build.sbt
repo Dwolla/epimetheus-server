@@ -34,7 +34,7 @@ lazy val core = project.in(file("core"))
       "org.http4s" %%% "http4s-ember-server" % "0.23.29",
       "org.http4s" %%% "http4s-dsl" % "0.23.29",
       "io.chrisdavenport" %%% "epimetheus" % "0.5.0",
-      "org.typelevel" %%% "munit-cats-effect" % "2.0.0-M3" % Test,
+      "org.typelevel" %%% "munit-cats-effect" % "2.0.0" % Test,
       "org.typelevel" %%% "scalacheck-effect-munit" % "2.0.0-M2" % Test,
       "com.eed3si9n.expecty" %%% "expecty" % "0.16.0" % Test,
       "ch.qos.logback" % "logback-classic" % "1.3.4" % Test,
