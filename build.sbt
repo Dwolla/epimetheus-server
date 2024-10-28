@@ -19,6 +19,7 @@ ThisBuild / githubWorkflowScalaVersions := Seq("2.13", "2.12", "3")
 ThisBuild / scalaVersion := Scala213
 ThisBuild / tlJdkRelease := Option(8)
 ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.temurin("17"))
+ThisBuild / tlCiReleaseBranches += "main"
 
 lazy val `epimetheus-server-root` =
   project.in(file("."))
