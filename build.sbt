@@ -37,6 +37,6 @@ lazy val core = project.in(file("core"))
       "org.typelevel" %%% "munit-cats-effect" % "2.0.0" % Test,
       "org.typelevel" %%% "scalacheck-effect-munit" % "2.0.0-M2" % Test,
       "com.eed3si9n.expecty" %%% "expecty" % "0.16.0" % Test,
-      "ch.qos.logback" % "logback-classic" % "1.3.4" % Test,
+      "ch.qos.logback" % "logback-classic" % "1.4.14" % Test,
     )
   )
