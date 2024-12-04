@@ -33,8 +33,8 @@ lazy val core = project.in(file("core"))
   .settings(
     name := "monitoring-server",
     libraryDependencies ++= Seq(
-      "org.http4s" %%% "http4s-ember-server" % "0.23.29",
-      "org.http4s" %%% "http4s-dsl" % "0.23.29",
+      "org.http4s" %%% "http4s-ember-server" % "0.23.30",
+      "org.http4s" %%% "http4s-dsl" % "0.23.30",
       "io.chrisdavenport" %%% "epimetheus" % "0.5.0",
       "org.typelevel" %%% "munit-cats-effect" % "2.0.0" % Test,
       "org.typelevel" %%% "scalacheck-effect-munit" % "2.0.0-M2" % Test,
