@@ -10,9 +10,9 @@ ThisBuild / developers := List(
   tlGitHubDev("bpholt", "Brian Holt")
 )
 
-val Scala213 = "2.13.15"
-val Scala212 = "2.12.20"
-val Scala3 = "3.3.4"
+val Scala213 = "2.13.18"
+val Scala212 = "2.12.21"
+val Scala3 = "3.3.9"
 ThisBuild / crossScalaVersions := Seq(Scala213, Scala212, Scala3)
 ThisBuild / githubWorkflowScalaVersions := Seq("2.13", "2.12", "3")
 ThisBuild / scalaVersion := Scala213
