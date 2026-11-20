@@ -1,5 +1,5 @@
 // https://typelevel.org/sbt-typelevel/faq.html#what-is-a-base-version-anyway
-ThisBuild / tlBaseVersion := "7.1" // your current series x.y
+ThisBuild / tlBaseVersion := "7.2" // your current series x.y
 
 ThisBuild / organization := "com.dwolla"
 ThisBuild / organizationName := "Dwolla"
@@ -12,7 +12,7 @@ ThisBuild / developers := List(
 
 val Scala213 = "2.13.18"
 val Scala212 = "2.12.21"
-val Scala3 = "3.3.9"
+val Scala3 = "3.9.0"
 ThisBuild / crossScalaVersions := Seq(Scala213, Scala212, Scala3)
 ThisBuild / githubWorkflowScalaVersions := Seq("2.13", "2.12", "3")
 ThisBuild / scalaVersion := Scala213

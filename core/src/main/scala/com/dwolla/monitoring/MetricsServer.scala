@@ -43,7 +43,9 @@ object MetricsServer {
   def apply[F[_]](registry: CollectorRegistry[F],
                           port: Option[Port],
                           F: Async[F]): MetricsServer[F] = {
-    new MetricsServer(registry, port)(F, fs2.io.net.Network.implicitForAsync(F)) {}
+    implicit val async: Async[F] = F
+    implicit val network: Network[F] = Network.forAsync[F]
+    new MetricsServer(registry, port) {}
   }
 
   def apply[F[_] : Async : Network](registry: CollectorRegistry[F],
